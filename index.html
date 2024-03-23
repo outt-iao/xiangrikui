@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>下载向日葵</title>
+<script>
+  function detectSystemArchitecture() {
+    if (navigator.userAgent.indexOf("WOW64") !== -1 || navigator.userAgent.indexOf("Win64") !== -1) {
+      return 64;
+    } else {
+      return 32;
+    }
+  }
+  
+  function downloadSunflower() {
+    var architecture = detectSystemArchitecture();
+    var downloadLink;
+    var buttonText;
+    
+    if (architecture === 64) {
+      downloadLink = "https://d.oray.com/sunlogin/windows/SunloginClient_%2015.3.2.62919_x64.exe";
+      buttonText = "点击下载向日葵（64位）";
+    } else {
+      downloadLink = "https://d.oray.com/sunlogin/windows/SunloginClient_%2015.3.2.62919.exe";
+      buttonText = "点击下载向日葵（32位）";
+    }
+    
+    document.getElementById("downloadButton").textContent = buttonText;
+    window.location.href = downloadLink;
+  }
+</script>
+</head>
+<body>
+<h1>点击下方按钮下载向日葵:</h1>
+<button id="downloadButton" onclick="downloadSunflower()"
+  style="font-size: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">
+  点击下载向日葵
+</button>
+</body>
+</html>
